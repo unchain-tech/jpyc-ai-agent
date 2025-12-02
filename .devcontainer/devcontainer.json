@@ -9,7 +9,6 @@
 			"extensions": [
 				"dbaeumer.vscode-eslint",
 				"biomejs.biome",
-				"esbenp.prettier-vscode",
 				"bradlc.vscode-tailwindcss"
 			],
 			"settings": {
