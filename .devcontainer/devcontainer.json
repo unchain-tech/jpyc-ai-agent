@@ -1,0 +1,22 @@
+{
+	"name": "JPYC AI Agent Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+	"features": {
+		"ghcr.io/devcontainers-extra/features/pnpm:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"biomejs.biome",
+				"bradlc.vscode-tailwindcss"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "biomejs.biome"
+			}
+		}
+	},
+	"postCreateCommand": "git submodule update --init --recursive && pnpm install",
+	"forwardPorts": [3000, 3001]
+}
