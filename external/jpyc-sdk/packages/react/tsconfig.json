@@ -1,0 +1,58 @@
+{
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/artifacts/**/*.json", "./vite.config.ts"],
+  "exclude": ["./src/**/*.test.ts", "./src/**/*.test.tsx", "node_modules", "dist"],
+  "compilerOptions": {
+    /* bundler settings */
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "composite": true,
+    "jsx": "react-jsx",
+
+    /* output settings */
+    "module": "ESNext",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "incremental": true,
+    "preserveWatchOutput": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "declarationMap": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "target": "ES2020",
+    "importHelpers": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.react.tsbuildinfo",
+
+    /* import settings */
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* linter options */
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": false,
+
+    /* misc */
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": true
+  }
+}

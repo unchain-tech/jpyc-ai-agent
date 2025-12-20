@@ -1,0 +1,54 @@
+{
+  "name": "@jpyc/sdk-core-examples",
+  "private": true,
+  "packageManager": "yarn@4.7.0",
+  "engines": {
+    "node": "^22.15.0"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "dev": "hardhat node",
+    "compile:contracts": "hardhat compile",
+    "clean": "hardhat clean",
+    "deploy": "rm -f -r ./ignition/deployments && hardhat run ./scripts/deployments.ts --network localhost",
+    "compile": "tsc",
+    "format": "prettier --write .",
+    "format:dry-run": "prettier --check .",
+    "mint": "hardhat run ./src/mint.ts --network localhost",
+    "total-supply": "hardhat run ./src/total-supply.ts --network localhost",
+    "transfer": "hardhat run ./src/transfer.ts --network localhost",
+    "approve": "hardhat run ./src/approve.ts --network localhost",
+    "permit": "hardhat run ./src/permit.ts --network localhost",
+    "transfer-from": "hardhat run ./src/transfer-from.ts --network localhost",
+    "transfer-with-authorization": "hardhat run ./src/transfer-with-authorization.ts --network localhost",
+    "receive-with-authorization": "hardhat run ./src/receive-with-authorization.ts --network localhost",
+    "cancel-authorization": "hardhat run ./src/cancel-authorization.ts --network localhost"
+  },
+  "dependencies": {
+    "@jpyc/sdk-core": "^2.0.0",
+    "crypto": "^1.0.1",
+    "soltypes": "^2.0.0",
+    "viem": "^2.38.5"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^0.15.10",
+    "@nomicfoundation/hardhat-ignition-viem": "^0.15.10",
+    "@nomicfoundation/hardhat-toolbox": "6.1.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.13",
+    "@nomicfoundation/hardhat-viem": "^2.0.6",
+    "@nomicfoundation/ignition-core": "^0.15.10",
+    "@types/node": "^24.9.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "hardhat": "^2.22.19",
+    "hardhat-gas-reporter": "^2.3.0",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
+  }
+}

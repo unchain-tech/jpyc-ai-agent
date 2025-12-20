@@ -1,0 +1,10 @@
+.gitkeep
+.env*
+*.lock
+dist
+cache
+artifacts
+node_modules
+docs/core-html/
+examples
+contracts

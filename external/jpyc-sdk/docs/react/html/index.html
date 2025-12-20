@@ -1,0 +1,514 @@
+<!doctype html>
+<html class="default" lang="en" data-base="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <title>@jpyc/sdk-react</title>
+    <meta name="description" content="Documentation for @jpyc/sdk-react" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script defer src="assets/main.js"></script>
+    <script async src="assets/icons.js" id="tsd-icons-script"></script>
+    <script async src="assets/search.js" id="tsd-search-script"></script>
+    <script async src="assets/navigation.js" id="tsd-nav-script"></script>
+  </head>
+  <body>
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem('tsd-theme') || 'os';
+      document.body.style.display = 'none';
+      setTimeout(
+        () => (window.app ? app.showPage() : document.body.style.removeProperty('display')),
+        500,
+      );
+    </script>
+    <header class="tsd-page-toolbar">
+      <div class="tsd-toolbar-contents container">
+        <a href="index.html" class="title">@jpyc/sdk-react</a>
+        <div id="tsd-toolbar-links"></div>
+        <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <use href="assets/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+        <dialog id="tsd-search" aria-label="Search">
+          <input
+            role="combobox"
+            id="tsd-search-input"
+            aria-controls="tsd-search-results"
+            aria-autocomplete="list"
+            aria-expanded="true"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Search the docs"
+            maxlength="100"
+          />
+          <ul role="listbox" id="tsd-search-results"></ul>
+          <div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+            <div>Preparing search index...</div>
+          </div>
+        </dialog>
+        <a
+          href="#"
+          class="tsd-widget menu"
+          id="tsd-toolbar-menu-trigger"
+          data-toggle="menu"
+          aria-label="Menu"
+          ><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <use href="assets/icons.svg#icon-menu"></use></svg
+        ></a>
+      </div>
+    </header>
+    <div class="container container-main">
+      <div class="col-content">
+        <div class="tsd-page-title"><h1>@jpyc/sdk-react</h1></div>
+        <div class="tsd-panel tsd-typography">
+          <h1 id="jpyc-react-sdk" class="tsd-anchor-link">
+            JPYC React SDK<a href="#jpyc-react-sdk" aria-label="Permalink" class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h1>
+          <p>
+            <a href="./LICENSE"
+              ><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"
+            /></a>
+            <img
+              src="https://github.com/jcam1/sdks/actions/workflows/check.yml/badge.svg"
+              alt="build"
+            />
+            <a href="https://badge.fury.io/js/@jpyc%2Fsdk-react"
+              ><img src="https://badge.fury.io/js/@jpyc%2Fsdk-react.svg" alt="npm version"
+            /></a>
+          </p>
+          <p>
+            This package implements React hooks for interacting with the JPYC contracts on any
+            supported chains. =&gt; 日本語版は<a href="media/README-jp.md">こちら</a>。
+          </p>
+          <h2 id="✅-supported-contract-types--networks" class="tsd-anchor-link">
+            ✅ Supported Contract Types &amp; Networks<a
+              href="#✅-supported-contract-types--networks"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <p>
+            The SDK supports the following contract types and networks as of October 2025. Please
+            use one of the chain IDs below when configuring the SDK client.
+          </p>
+          <div class="tsd-alert tsd-alert-note">
+            <div class="tsd-alert-title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+              >
+                <use href="assets/icons.svg#icon-alertNote"></use></svg
+              ><span>Note</span>
+            </div>
+            <p>
+              You could also configure your locally-deployed contracts for local development and/or
+              testing. For chain ID, please use <code>31337</code>.
+            </p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: right"></th>
+                <th style="text-align: center">JPYC</th>
+                <th style="text-align: center">JPYC Prepaid</th>
+                <th style="text-align: center">Chain ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: right">Ethereum Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">1</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Ethereum Sepolia Testnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">11155111</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Polygon PoS Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">137</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Polygon Amoy Testnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">80002</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Gnosis Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">100</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Gnosis Chiado Testnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">10200</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Avalanche Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">43114</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Avalanche Fuji Testnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">43113</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Astar Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">592</td>
+              </tr>
+              <tr>
+                <td style="text-align: right">Shiden Mainnet</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">✅</td>
+                <td style="text-align: center">336</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="💡-usage" class="tsd-anchor-link">
+            💡 Usage<a href="#💡-usage" aria-label="Permalink" class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <p>Please follow the steps below to install &amp; configure the SDK.</p>
+          <h3 id="1-installation" class="tsd-anchor-link">
+            1. Installation<a href="#1-installation" aria-label="Permalink" class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h3>
+          <p>Install our NPM package.</p>
+          <pre><code class="sh"><span class="hl-0"># yarn</span><br/><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">yarn</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> </span><span class="hl-3">@jpyc/sdk-react</span><br/><br/><span class="hl-0"># npm</span><br/><span class="hl-1">$</span><span class="hl-2"> </span><span class="hl-3">npm</span><span class="hl-2"> </span><span class="hl-3">i</span><span class="hl-2"> </span><span class="hl-3">@jpyc/sdk-react</span>
+</code><button type="button">Copy</button></pre>
+
+          <h3 id="2-configuration" class="tsd-anchor-link">
+            2. Configuration<a
+              href="#2-configuration"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h3>
+          <p>Wrap your entire app by <code>JpycSdkProvider</code>.</p>
+          <div class="tsd-alert tsd-alert-tip">
+            <div class="tsd-alert-title">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <use href="assets/icons.svg#icon-alertTip"></use></svg
+              ><span>Tip</span>
+            </div>
+            <p>
+              The SDK avoids any implicit use of environment variables. We recommend securely
+              loading sensitive data (e.g., RPC URL with explicit access token) when integrating the
+              SDK into your app.
+            </p>
+          </div>
+          <pre><code class="tsx"><span class="hl-4">&lt;</span><span class="hl-5">JpycSdkProvider</span><br/><span class="hl-2">  </span><span class="hl-6">env</span><span class="hl-2">=</span><span class="hl-3">&quot;prod&quot;</span><br/><span class="hl-2">  </span><span class="hl-6">contractType</span><span class="hl-2">=</span><span class="hl-3">&quot;jpyc&quot;</span><br/><span class="hl-2">  </span><span class="hl-6">localContractAddress</span><span class="hl-2">=</span><span class="hl-3">&quot;0x...&quot;</span><br/><span class="hl-2">  </span><span class="hl-6">rpcs</span><span class="hl-2">=</span><span class="hl-7">{</span><span class="hl-8">{</span><br/><span class="hl-8">    </span><span class="hl-9">137</span><span class="hl-10">:</span><span class="hl-8"> </span><span class="hl-3">&#39;YOUR_RPC_ENDPOINT_URL&#39;</span><span class="hl-8">,</span><br/><span class="hl-8">  }</span><span class="hl-7">}</span><br/><span class="hl-4">&gt;</span><br/><span class="hl-2">  </span><span class="hl-4">&lt;</span><span class="hl-5">App</span><span class="hl-2"> </span><span class="hl-4">/&gt;</span><br/><span class="hl-4">&lt;/</span><span class="hl-5">JpycSdkProvider</span><span class="hl-4">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+          <p>
+            Hooks can be used within the wrapped component (e.g., anything within
+            <code>App</code> in the above code snippet).
+          </p>
+          <pre><code class="tsx"><span class="hl-11">import</span><span class="hl-2"> { </span><span class="hl-10">useApprove</span><span class="hl-2">, </span><span class="hl-10">useTransfer</span><span class="hl-2"> } </span><span class="hl-11">from</span><span class="hl-2"> </span><span class="hl-3">&#39;@jpyc/sdk-react&#39;</span><span class="hl-2">;</span><br/><br/><span class="hl-0">// imported hooks can then be used in your components or pages</span>
+</code><button type="button">Copy</button></pre>
+
+          <h2 id="✨-code-examples" class="tsd-anchor-link">
+            ✨ Code Examples<a
+              href="#✨-code-examples"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <p>
+            For your reference, we've implemented code examples in a separate
+            <a href="media/examples"><code>examples</code> directory</a>. Please follow the
+            instructions there to get started.
+          </p>
+          <h2 id="🤖-available-commands" class="tsd-anchor-link">
+            🤖 Available Commands<a
+              href="#🤖-available-commands"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <p>
+            The following commands are available as yarn scripts for local development &amp;
+            testing.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: right">Command</th>
+                <th style="text-align: left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: right"><code>compile</code></td>
+                <td style="text-align: left">Compile (transpile) SDK</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>test</code></td>
+                <td style="text-align: left">Run unit tests (using vitest)</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>lint</code></td>
+                <td style="text-align: left">Run Eslint</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>lint:dry-run</code></td>
+                <td style="text-align: left">Run Eslint without fixing</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>format</code></td>
+                <td style="text-align: left">Run Prettier</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>format:dry-run</code></td>
+                <td style="text-align: left">Run Prettier without fixing</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>docs</code></td>
+                <td style="text-align: left">
+                  Generate developer documents in both Markdown and HTML
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>docs:md</code></td>
+                <td style="text-align: left">Generate developer documents in Markdown</td>
+              </tr>
+              <tr>
+                <td style="text-align: right"><code>docs:html</code></td>
+                <td style="text-align: left">Generate developer documents in HTML</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="📚-documentation" class="tsd-anchor-link">
+            📚 Documentation<a
+              href="#📚-documentation"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <use href="assets/icons.svg#icon-anchor"></use></svg
+            ></a>
+          </h2>
+          <p>
+            You can find the auto-generated developer documents
+            <a href="../../docs/react/globals.md">here</a>.
+          </p>
+        </div>
+      </div>
+      <div class="col-sidebar">
+        <div class="page-menu">
+          <div class="tsd-navigation settings">
+            <details class="tsd-accordion">
+              <summary class="tsd-accordion-summary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <use href="assets/icons.svg#icon-chevronDown"></use>
+                </svg>
+                <h3>Settings</h3>
+              </summary>
+              <div class="tsd-accordion-details">
+                <div class="tsd-filter-visibility">
+                  <span class="settings-label">Member Visibility</span>
+                  <ul id="tsd-filter-options">
+                    <li class="tsd-filter-item">
+                      <label class="tsd-filter-input"
+                        ><input type="checkbox" id="tsd-filter-protected" name="protected" /><svg
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          aria-hidden="true"
+                        >
+                          <rect
+                            class="tsd-checkbox-background"
+                            width="30"
+                            height="30"
+                            x="1"
+                            y="1"
+                            rx="6"
+                            fill="none"
+                          ></rect>
+                          <path
+                            class="tsd-checkbox-checkmark"
+                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                            stroke="none"
+                            stroke-width="3.5"
+                            stroke-linejoin="round"
+                            fill="none"
+                          ></path></svg
+                        ><span>Protected</span></label
+                      >
+                    </li>
+                    <li class="tsd-filter-item">
+                      <label class="tsd-filter-input"
+                        ><input
+                          type="checkbox"
+                          id="tsd-filter-inherited"
+                          name="inherited"
+                          checked
+                        /><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                          <rect
+                            class="tsd-checkbox-background"
+                            width="30"
+                            height="30"
+                            x="1"
+                            y="1"
+                            rx="6"
+                            fill="none"
+                          ></rect>
+                          <path
+                            class="tsd-checkbox-checkmark"
+                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                            stroke="none"
+                            stroke-width="3.5"
+                            stroke-linejoin="round"
+                            fill="none"
+                          ></path></svg
+                        ><span>Inherited</span></label
+                      >
+                    </li>
+                    <li class="tsd-filter-item">
+                      <label class="tsd-filter-input"
+                        ><input type="checkbox" id="tsd-filter-external" name="external" /><svg
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          aria-hidden="true"
+                        >
+                          <rect
+                            class="tsd-checkbox-background"
+                            width="30"
+                            height="30"
+                            x="1"
+                            y="1"
+                            rx="6"
+                            fill="none"
+                          ></rect>
+                          <path
+                            class="tsd-checkbox-checkmark"
+                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+                            stroke="none"
+                            stroke-width="3.5"
+                            stroke-linejoin="round"
+                            fill="none"
+                          ></path></svg
+                        ><span>External</span></label
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="tsd-theme-toggle">
+                  <label class="settings-label" for="tsd-theme">Theme</label
+                  ><select id="tsd-theme">
+                    <option value="os">OS</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                  </select>
+                </div>
+              </div>
+            </details>
+          </div>
+          <details open class="tsd-accordion tsd-page-navigation">
+            <summary class="tsd-accordion-summary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <use href="assets/icons.svg#icon-chevronDown"></use>
+              </svg>
+              <h3>On This Page</h3>
+            </summary>
+            <div class="tsd-accordion-details">
+              <a href="#jpyc-react-sdk"
+                ><span>JPYC <wbr />React <wbr />SDK</span></a
+              >
+              <ul>
+                <li>
+                  <a href="#✅-supported-contract-types--networks"
+                    ><span
+                      >✅ <wbr />Supported <wbr />Contract <wbr />Types &amp; <wbr />Networks</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a href="#💡-usage"
+                    ><span>💡 <wbr />Usage</span></a
+                  >
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#1-installation"
+                        ><span>1. <wbr />Installation</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="#2-configuration"
+                        ><span>2. <wbr />Configuration</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#✨-code-examples"
+                    ><span>✨ <wbr />Code <wbr />Examples</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#🤖-available-commands"
+                    ><span>🤖 <wbr />Available <wbr />Commands</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#📚-documentation"
+                    ><span>📚 <wbr />Documentation</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </details>
+        </div>
+        <div class="site-menu">
+          <nav class="tsd-navigation">
+            <a href="modules.html">@jpyc/sdk-react</a>
+            <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
+              <li>Loading...</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p class="tsd-generator">
+        Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a>
+      </p>
+    </footer>
+    <div class="overlay"></div>
+  </body>
+</html>

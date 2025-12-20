@@ -1,0 +1,98 @@
+name: run static checks
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      pull-requests: read
+    outputs:
+      root: ${{ steps.filter.outputs.root }}
+      core: ${{ steps.filter.outputs.core }}
+      react: ${{ steps.filter.outputs.react }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            root:
+              - '.github/**'
+              - 'docs/**'
+              - 'README.md'
+              - 'package.json'
+              - 'yarn.lock'
+            core:
+              - 'packages/core/**'
+            react:
+              - 'packages/react/**'
+
+  check-root:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.root == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/install-dependencies
+      - name: Format
+        run: yarn format:dry-run .github docs README.md
+
+  check-core:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.core == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/core
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/install-dependencies
+      - name: Compile
+        run: yarn compile
+      - name: Lint
+        run: yarn lint:dry-run
+      - name: Format
+        run: yarn format:dry-run
+      - name: Run tests
+        run: yarn test
+
+  check-react:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.react == 'true' }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [18, 20, 22]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: ./packages/react
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Compile
+        run: yarn compile
+      - name: Lint
+        run: yarn lint:dry-run
+      - name: Format
+        run: yarn format:dry-run
+      - name: Run tests
+        run: yarn test

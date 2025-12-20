@@ -1,0 +1,15 @@
+# yarn
+.yarn/*
+
+# npm
+node_modules
+dist
+
+# hardhat
+ignition/deployments
+artifacts
+cache
+
+# misc
+.vscode
+.DS_Store

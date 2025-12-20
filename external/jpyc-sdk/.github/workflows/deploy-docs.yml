@@ -1,0 +1,53 @@
+name: deploy developer documents
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/install-dependencies
+      - name: Check format
+        run: yarn format:dry-run docs
+
+  build:
+    needs: format
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge artifacts
+        run: |
+          mkdir public
+          echo '<h1>JPYC TypeScript SDK Dev Docs</h1><ul><li><a href="core/">Core SDK</a></li><li><a href="react/">React SDK</a></li></ul>' > public/index.html
+          mv ./docs/core/html public/core
+          mv ./docs/react/html public/react
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

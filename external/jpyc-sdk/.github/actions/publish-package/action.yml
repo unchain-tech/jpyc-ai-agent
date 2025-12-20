@@ -1,0 +1,18 @@
+name: publish package
+description: publish an npm package
+inputs:
+  node-auth-token:
+    description: 'node token for authorization'
+    required: true
+  working-directory:
+    description: 'working directory'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Publish package
+      run: yarn publish --cwd ${{ inputs.working-directory }}
+      shell: bash
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}

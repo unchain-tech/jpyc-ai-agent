@@ -1,0 +1,79 @@
+{
+  "name": "@jpyc/sdk-react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "React hooks for interacting with JPYC contracts",
+  "keywords": [
+    "jpyc",
+    "jpy",
+    "stablecoin",
+    "ethereum",
+    "evm",
+    "sdk",
+    "typescript",
+    "react"
+  ],
+  "repository": "https://github.com/jcam1/sdks.git",
+  "homepage": "https://github.com/jcam1/sdks.git#readme",
+  "bugs": {
+    "url": "https://github.com/jcam1/sdks/issues/new?labels=bug,sdk-react&template=bug_report.md"
+  },
+  "engines": {
+    "node": "^22.15.0"
+  },
+  "type": "module",
+  "main": "dist/src",
+  "types": "dist/types/src",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --fix ./src",
+    "lint:dry-run": "eslint ./src",
+    "format": "prettier --write .",
+    "format:dry-run": "prettier --check .",
+    "docs": "run-p docs:md docs:html",
+    "docs:md": "typedoc --plugin typedoc-plugin-markdown --out ../../docs/react/md",
+    "docs:html": "typedoc --out ../../docs/react/html"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "soltypes": "^2.0.0",
+    "viem": "^2.21.53",
+    "wagmi": "^2.13.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vitest/coverage-istanbul": "^3.2.4",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.13.0",
+    "happy-dom": "^18.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.28.12",
+    "typedoc-plugin-markdown": "^4.8.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "vitest": "^3.2.4"
+  }
+}

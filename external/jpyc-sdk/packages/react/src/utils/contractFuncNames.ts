@@ -1,0 +1,20 @@
+/** Contract function names. */
+export const CONTRACT_FUNC_NAMES = {
+  totalSupply: 'totalSupply',
+  balanceOf: 'balanceOf',
+  allowance: 'allowance',
+  nonces: 'nonces',
+  isMinter: 'isMinter',
+  minterAllowance: 'minterAllowance',
+  transfer: 'transfer',
+  transferFrom: 'transferFrom',
+  transferWithAuthorization: 'transferWithAuthorization',
+  receiveWithAuthorization: 'receiveWithAuthorization',
+  cancelAuthorization: 'cancelAuthorization',
+  approve: 'approve',
+  increaseAllowance: 'increaseAllowance',
+  decreaseAllowance: 'decreaseAllowance',
+  permit: 'permit',
+  configureMinter: 'configureMinter',
+  mint: 'mint',
+};
